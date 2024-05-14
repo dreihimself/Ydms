@@ -17,6 +17,14 @@
       <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg-dark text-white">
         <!-- drawer content -->
         <h5 class="text-primary text-center text-bold">LYDO</h5>
+        <h6 class="q-ml-xl">Dashboard</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Profile</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Program</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Sk Activities</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Youth Org. Registry</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Generate Reports</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Settings</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Logout</h6>
       </q-drawer>
 
       <q-page-container>
