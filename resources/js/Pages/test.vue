@@ -1,7 +1,5 @@
 <template>
   <q-layout view="hHh lpR fFf">
-
-    <!-- Header -->
     <q-header elevated class="bg-dark text-white" style="height:100px; align-content:center;">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
@@ -14,63 +12,71 @@
       </q-toolbar>
     </q-header>
 
-    <!-- Left Drawer -->
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg-dark text-white">
+      <!-- drawer content -->
       <h3 class="text-h5 text-primary q-ml-lg text-bold">LYDO</h3>
-      <h6 class="q-ml-xl">Dashboard</h6>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Profile.</h6>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Program</h6>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Sk Activities</h6>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Youth Org. Registry</h6>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Generate Reports</h6>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Settings</h6>
 
-      <q-btn flat label="Settings" class="q-ml-xl" @click="showContent = !showContent" />
-      <q-slide-transition>
-        <div v-if="showContent" class="q-pa-md">
-          <p>User Settings</p>
-          <p>Dropdown Settings</p>
-          <p>SK Officials</p>
-          <p>Barangay Registry</p>
-          <p>Department Head</p>
-        </div>
-      </q-slide-transition>
-      <h6 class="q-ml-xl" style="margin-top: -45px;">Logout</h6>
-      <div class=" text-white">
-
-      <q-expansion-item
-        label="Account settings"
-        class="q-ml-lg text-h6" 
-      >
-        <q-card class="bg-grey-9">
-          <q-list bordered separator>
-      <q-item clickable v-ripple>
-        <q-item-section>Single line item</q-item-section>
-      </q-item>
-
-      <q-item clickable v-ripple>
-        <q-item-section>
-          <q-item-label>Item with caption</q-item-label>
-          <q-item-label caption>Caption</q-item-label>
-        </q-item-section>
-      </q-item>
-
-      <q-item clickable v-ripple>
-        <q-item-section>
-          <q-item-label overline>OVERLINE</q-item-label>
-          <q-item-label>Item with caption</q-item-label>
-        </q-item-section>
-      </q-item>
-    </q-list>
-        </q-card>
-      </q-expansion-item>
-
-      </div>
-
+      <q-list bordered class="q-ml-xl">
+        <q-item clickable v-ripple @click="navigateTo('dashboard')" class="custom-font">
+          <q-item-section>
+            <q-item-label>Dashboard</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="navigateTo('profile')" class="custom-font">
+          <q-item-section>
+            <q-item-label>Profile</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="navigateTo('program')" class="custom-font">
+          <q-item-section>
+            <q-item-label>Program</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="navigateTo('sk-activities')" class="custom-font">
+          <q-item-section>
+            <q-item-label>Sk Activities</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="navigateTo('youth-org-registry')" class="custom-font">
+          <q-item-section>
+            <q-item-label>Youth Org. Registry</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="showGenerateReports = !showGenerateReports" class="custom-font">
+          <q-item-section>
+            <q-item-label>Generate Reports</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-slide-transition>
+          <div v-if="showGenerateReports" class="q-pa-md custom-font">
+            <p>KK Profiling Summary</p>
+            <p>SK Council Activity</p>
+            <p>Programs Summary</p>
+            <p>Activity Summary</p>
+          </div>
+        </q-slide-transition>
+        <q-item clickable v-ripple @click="showContent = !showContent" class="custom-font">
+          <q-item-section>
+            <q-item-label>Settings</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-slide-transition>
+          <div v-if="showContent" class="q-pa-md custom-font">
+            <a href="{{ route(usersettings) }}">User Settings</a>
+            <p>Dropdown Settings</p>
+            <p>SK Officials</p>
+            <p>Barangay Registry</p>
+            <p>Department Head</p>
+          </div>
+        </q-slide-transition>
+        <q-item clickable v-ripple @click="logout()" class="custom-font">
+          <q-item-section>
+            <q-item-label>Logout</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
-    
 
-    <!-- Router View -->
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -78,24 +84,44 @@
   </q-layout>
 </template>
 
+<!--JS-->
 <script>
 import { ref } from 'vue'
 
 export default {
   setup() {
     const leftDrawerOpen = ref(false)
+    const showContent = ref(false)
+    const showGenerateReports = ref(false)
+
+    const toggleLeftDrawer = () => {
+      leftDrawerOpen.value = !leftDrawerOpen.value
+    }
+
+    const navigateTo = (route) => {
+      // Implement your navigation logic here
+    }
+
+    const logout = () => {
+      // Implement your logout logic here
+    }
 
     return {
       leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      toggleLeftDrawer,
+      showContent,
+      showGenerateReports,
+      navigateTo,
+      logout
     }
-  },
-  data() {
-    return {
-      showContent: false // Initial state: settings content hidden
-    };
   }
 }
 </script>
+
+
+<!--CSS-->
+<style>
+.custom-font {
+  font-size: 1.35em; /* Adjust the size as needed */
+}
+</style>
