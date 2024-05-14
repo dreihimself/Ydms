@@ -18,7 +18,7 @@
         <!-- drawer content -->
         <h3 class="text-h5 text-primary q-ml-lg text-bold">LYDO</h3>
         <h6 class="q-ml-xl">Dashboard</h6>
-        <h6 class="q-ml-xl" style="margin-top: -45px;">Profile</h6>
+        <h6 class="q-ml-xl" style="margin-top: -45px;">Profile.</h6>
         <h6 class="q-ml-xl" style="margin-top: -45px;">Program</h6>
         <h6 class="q-ml-xl" style="margin-top: -45px;">Sk Activities</h6>
         <h6 class="q-ml-xl" style="margin-top: -45px;">Youth Org. Registry</h6>
