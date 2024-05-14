@@ -1,7 +1,7 @@
 <template>
     <q-layout view="hHh lpR fFf">
 
-      <q-header elevated class="bg-dark text-white">
+      <q-header elevated class="bg-dark text-white" style="height:100px; align-content:center;">
         <q-toolbar>
           <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
@@ -14,8 +14,9 @@
         </q-toolbar>
       </q-header>
 
-      <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg-dark">
+      <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg-dark text-white">
         <!-- drawer content -->
+        <h5 class="text-primary text-center text-bold">LYDO</h5>
       </q-drawer>
 
       <q-page-container>
