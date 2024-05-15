@@ -35,3 +35,4 @@ Route::get('/', [RouteController::class, 'index']);
 Route::get('/home', [RouteController::class, 'home']);
 Route::get('/preference', [RouteController::class, 'preference']);
 Route::get('/usersettings', [RouteController::class, 'usersettings']);
+Route::get('/SkOfficials', [RouteController::class, 'skofficials']);
