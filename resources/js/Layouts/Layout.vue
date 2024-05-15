@@ -45,14 +45,28 @@
 
 <script>
 import Navigation from './Navigation.vue';
+import { ref } from 'vue';
+
 export default {
     components: {
-        Navigation
+        Navigation,
     },
-    data () {
+    setup() {
+        const leftDrawerOpen = ref(false);
+
         return {
-            active: Boolean
-        }
-    }
-}
+            leftDrawerOpen,
+            toggleLeftDrawer() {
+                leftDrawerOpen.value = !leftDrawerOpen.value;
+            },
+        };
+    },
+    data() {
+        return {
+            active: Boolean,
+            showContent: false, // Initial state: settings content hidden
+        };
+    },
+};
 </script>
+
