@@ -1,7 +1,7 @@
 <template>
     <q-layout view="hHh lpR fFf">
-        <q-header elevated class="bg-dark text-white">
-            <q-toolbar>
+        <q-header elevated class="bg-dark text-white" >
+            <q-toolbar style="height:100px">
                 <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
                 <q-toolbar-title>
                     <q-avatar>
@@ -19,35 +19,35 @@
                     <div style="padding: 10px;">
                         <q-list padding>
                             <Navigation class="no-text-decoration" href="/home">
-                                <q-item  class="q-ma-sm navigation-item text-white" :class="$page.component === 'HomePage' ? 'bg-grey-14' : null">
+                                <q-item  class="q-ma-xm navigation-item text-white" :class="$page.component === 'HomePage' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         Dashboard
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
                             <Navigation href="">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         Profile
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
                             <Navigation href="">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         Program
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
                             <Navigation href="">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         SK Activities
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
                             <Navigation class="m-ml-none" href="">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item clickable v-ripple @click="showGenerateReports = !showGenerateReports" class="custom-font">
                                         <q-item-section>
                                             <q-item-label>Generate Reports</q-item-label>
@@ -65,7 +65,7 @@
 
                             </Navigation>
                             <Navigation href="">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item clickable v-ripple @click="showContent = !showContent" class="custom-font">
                                         <q-item-section>
                                             <q-item-label>Settings</q-item-label>
@@ -74,14 +74,20 @@
                                         <q-slide-transition>
                                         <div v-if="showContent" class="q-pa-md custom-font">
                                             <Navigation href="usersettings">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === 'usersettings' ? 'bg-grey-14' : null">
-                                    <q-item-section>
-                                        User Settings
-                                    </q-item-section>
-                                </q-item>
-                            </Navigation>
+                                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === 'usersettings' ? 'bg-grey-14' : null">
+                                                    <q-item-section>
+                                                        User Settings
+                                                    </q-item-section>
+                                                </q-item>
+                                            </Navigation>
                                             <p>Dropdown Settings</p>
-                                            <p>SK Officials</p>
+                                            <Navigation href="SkOfficials">
+                                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === 'SkOfficials' ? 'bg-grey-14' : null">
+                                                    <q-item-section>
+                                                        Sk Officials
+                                                    </q-item-section>
+                                                </q-item>
+                                            </Navigation>
                                             <p>Barangay Registry</p>
                                             <p>Department Head</p>
                                         </div>
@@ -89,14 +95,14 @@
                                 </q-item>
                             </Navigation>
                             <Navigation href="/preference">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === 'PreferencePage' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === 'PreferencePage' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         Preferences
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
                             <Navigation href="">
-                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         Logout
                                     </q-item-section>
