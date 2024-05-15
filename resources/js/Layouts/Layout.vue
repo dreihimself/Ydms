@@ -13,20 +13,86 @@
         </q-header>
         <q-drawer show-if-above v-model="leftDrawerOpen" side="left" class="bg-dark text-white drawer-wrapper">
             <div class="full-height drawer">
+                <h3 class="text-h5 text-primary q-ml-lg text-bold">LYDO</h3>
+
                 <div class="full-height wrapper">
                     <div style="padding: 10px;">
                         <q-list padding>
                             <Navigation href="/home">
                                 <q-item class="q-ma-sm navigation-item" :class="$page.component === 'HomePage' ? 'bg-red' : null">
                                     <q-item-section>
-                                        Home
+                                        Dashboard
                                     </q-item-section>
+                                </q-item>
+                            </Navigation>
+                            <Navigation href="">
+                                <q-item class="q-ma-sm navigation-item" :class="$page.component === '' ? 'bg-red' : null">
+                                    <q-item-section>
+                                        Profile
+                                    </q-item-section>
+                                </q-item>
+                            </Navigation>
+                            <Navigation href="">
+                                <q-item class="q-ma-sm navigation-item" :class="$page.component === '' ? 'bg-red' : null">
+                                    <q-item-section>
+                                        Program
+                                    </q-item-section>
+                                </q-item>
+                            </Navigation>
+                            <Navigation href="">
+                                <q-item class="q-ma-sm navigation-item" :class="$page.component === '' ? 'bg-red' : null">
+                                    <q-item-section>
+                                        SK Activities
+                                    </q-item-section>
+                                </q-item>
+                            </Navigation>
+                            <Navigation href="">
+                                <q-item class="q-ma-sm navigation-item" :class="$page.component === '' ? 'bg-red' : null">
+                                    <q-item clickable v-ripple @click="showGenerateReports = !showGenerateReports" class="custom-font">
+          <q-item-section>
+            <q-item-label>Generate Reports</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-slide-transition>
+          <div v-if="showGenerateReports" class="q-pa-md custom-font">
+            <p>KK Profiling Summary</p>
+            <p>SK Council Activity</p>
+            <p>Programs Summary</p>
+            <p>Activity Summary</p>
+          </div>
+        </q-slide-transition>
+        </q-item>
+                               
+                            </Navigation>
+                            <Navigation href="">
+                                <q-item class="q-ma-sm navigation-item" :class="$page.component === '' ? 'bg-red' : null">
+                                    <q-item clickable v-ripple @click="showContent = !showContent" class="custom-font">
+          <q-item-section>
+            <q-item-label>Settings</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-slide-transition>
+          <div v-if="showContent" class="q-pa-md custom-font">
+            <a href="{{ route(usersettings) }}">User Settings</a>
+            <p>Dropdown Settings</p>
+            <p>SK Officials</p>
+            <p>Barangay Registry</p>
+            <p>Department Head</p>
+          </div>
+        </q-slide-transition>
                                 </q-item>
                             </Navigation>
                             <Navigation href="/preference">
                                 <q-item class="q-ma-sm navigation-item" :class="$page.component === 'PreferencePage' ? 'bg-red' : null">
                                     <q-item-section>
                                         Preferences
+                                    </q-item-section>
+                                </q-item>
+                            </Navigation>
+                            <Navigation href="">
+                                <q-item class="q-ma-sm navigation-item" :class="$page.component === '' ? 'bg-red' : null">
+                                    <q-item-section>
+                                        Logout
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
