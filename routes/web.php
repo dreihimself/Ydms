@@ -34,3 +34,4 @@ use App\Http\Controllers\RouteController;
 Route::get('/', [RouteController::class, 'index']);
 Route::get('/home', [RouteController::class, 'home']);
 Route::get('/preference', [RouteController::class, 'preference']);
+Route::get('/usersettings', [RouteController::class, 'usersettings']);

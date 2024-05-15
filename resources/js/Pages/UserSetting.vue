@@ -22,8 +22,6 @@ import { ref } from 'vue'
   /* Add any other styles to customize the form's appearance */
   padding: 15px;
   border-radius: 5px;
-  margin-top: -60px;
-  margin-left: -250px;
 }
 
 .user-info-table {

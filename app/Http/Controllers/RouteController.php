@@ -24,4 +24,9 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('PreferencePage');    
     }
+    public function usersettings()
+    {
+        // sleep(3);
+        return Inertia::render('usersettings');    
+    }
 }

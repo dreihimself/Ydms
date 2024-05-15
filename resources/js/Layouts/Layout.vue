@@ -73,7 +73,13 @@
                                         </q-item>
                                         <q-slide-transition>
                                         <div v-if="showContent" class="q-pa-md custom-font">
-                                            <p>user settings</p>
+                                            <Navigation href="usersettings">
+                                <q-item class="q-ma-sm navigation-item text-white" :class="$page.component === 'usersettings' ? 'bg-grey-14' : null">
+                                    <q-item-section>
+                                        User Settings
+                                    </q-item-section>
+                                </q-item>
+                            </Navigation>
                                             <p>Dropdown Settings</p>
                                             <p>SK Officials</p>
                                             <p>Barangay Registry</p>
