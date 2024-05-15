@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RouteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return inertia('test');
-});
+// Route::get('/', function () {
+//     return inertia('MainLayout');
+// });
+
+// Route::get('/usersettings', function () {
+//     return inertia('usersettings');
+// });
+
+// Route::get('/settings', function () {
+//     return inertia('settings');
+// });
+
+Route::get('/', [RouteController::class, 'index']);
+Route::get('/home', [RouteController::class, 'home']);
+Route::get('/preference', [RouteController::class, 'preference']);
