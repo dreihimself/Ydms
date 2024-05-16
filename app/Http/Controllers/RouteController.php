@@ -58,4 +58,9 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('DeptHead');
     }
+    public function civilstatus()
+    {
+        // sleep(3);
+        return Inertia::render('civilstatusdd');
+    }
 }
