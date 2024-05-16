@@ -8,10 +8,10 @@
             <div class="container" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
 
 
-  <div class="q-pa-xm bg-accent" style="width: 17%;">
+  <div class="q-pa-xm bg-primary" style="width: 17%;">
     <q-tabs v-model="tab">
       <q-item href="/civilstatus" :class="$page.component === 'civilstatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
-        <q-item-section class="text-black"> Activity </q-item-section>
+        <q-item-section class="text-white"> Activity </q-item-section>
       </q-item>
     </q-tabs>
   </div>
