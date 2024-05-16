@@ -6,7 +6,7 @@
       <!--tab here-->
       <Head title="User Settings" />
       <div class="q-pa-md" style="margin-left: -45px">
-        <div class="q-gutter-y-md bg-blue" style="width: 10%; margin-left: 30px;">
+        <div class="q-gutter-y-md bg-primary" style="width: 15%; margin-left: 30px;">
           <q-tabs v-model="tab">
             <q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
               <div class="text-white" style="width: 100%; text-align: left"> User Settings </div>
@@ -51,67 +51,118 @@
               <q-icon name="search" />
             </template>
           </q-input>
-          <div class="q-pa-md">
-            <q-table :rows="rows" :columns="columns" row-key="name" />
+          <div class="q-pa-md" >
+            <q-table :rows="rows" :columns="columns "  row-key="name"  />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
 <script>
-  import {
-    ref
-  } from 'vue';
-  const columns = [{
-    name: 'name',
-    required: true,
-    label: 'UserName',
-    align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true
-  }, {
-    name: 'UserType',
-    align: 'center',
-    label: 'UserType',
-    field: 'calories',
-    sortable: true
-  }, {
-    name: 'Barangay',
-    label: 'Barangay',
-    field: 'fat',
-    sortable: true
-  }, {
-    name: 'MobileNumber',
-    label: 'Mobile Number',
-    field: 'carbs'
-  }, {
-    name: 'Status',
-    label: 'Status',
-    field: 'protein'
-  }, {
-    name: 'Action',
-    label: 'Action',
-    field: 'sodium'
-  }, ]
-  const rows = []
-  export default {
+  import { ref, onMounted} from 'vue';
+
+
+ export default {
     setup() {
+      const columns = [
+        {
+          name: 'name',
+          required: true,
+          label: 'Name',
+          align: 'left',
+          field: row => row.name,
+          format: val => `${val}`,
+          sortable: true,
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'User Name',
+          align: 'center',
+          label: 'User Name',
+          field: 'User Name',
+          sortable: true,
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'User Type',
+          align: 'center',
+          label: 'User Type',
+          field: 'User Type',
+          sortable: true,
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'Barangay',
+          align: 'center',
+          label: 'Barangay',
+          field: 'Barangay',
+          sortable: true,
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'mobile_number',
+          label: 'Mobile No.',
+          field: 'mobile_number',
+          sortable: true,
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'Status',
+          label: 'Status',
+          field: 'Status',
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'Action',
+          label: 'Action',
+          field: 'Action',
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        }
+      ];
+
+      const rows = ref([]);
+
+      const fetchData = async () => {
+        try {
+          const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
+          const data = await response.json();
+          rows.value = data;
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+
+      onMounted(() => {
+        fetchData();
+      });
+
       return {
         columns,
-        rows,
-        FirstName: ref(''),
-        middleName: ref(''),
-        LastName: ref(''),
-        Suffix: ref(''),
-        username: ref(''),
-        selectedUserType: ref(null),
-        userTypes: ['Type A', 'Type B', 'Type C'],
-        mobileNumber: ref(''),
-        password: ref(''),
-        isPwd: ref(false),
-        tab: ref('mails')
+        rows
       };
     }
   };
