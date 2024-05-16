@@ -67,9 +67,11 @@
           </div>
       </div>
       <div class="col">
-  <div class="q-mt-xl q-pr-md" style="display: flex; align-items: center; gap: 5px; justify-content: end;">
-            <q-input outlined v-model="Addcivilstat" dense label="Add Option" style="width:25%"/>
+  <div class="q-mt-xl q-pr-md" style="display: flex; align-items: center; gap: 5px;">
+    <q-item style="justify-self: left;">Youth With Special Needs</q-item>
+            <q-input outlined v-model="Addcivilstat" dense label="Add Option" style="width:100%;"/>
             <q-btn label="+" color="primary" @click="addOption" />
+
 
 </div>
           <div class="q-pa-md br-primary">
