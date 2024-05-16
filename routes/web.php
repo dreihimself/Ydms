@@ -43,3 +43,4 @@ Route::get('/dept_head', [RouteController::class, 'dept_head']);
 Route::get('/civilstatus', [RouteController::class, 'civilstatus']);
 Route::get('/Program', [RouteController::class, 'Program']);
 Route::get('/EducBg', [RouteController::class, 'EducBg']);
+Route::get('/YouthClassification', [RouteController::class, 'YouthClassification']);

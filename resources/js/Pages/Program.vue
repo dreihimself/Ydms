@@ -38,12 +38,12 @@
     </q-tabs>
   </div>
   <div class="q-pa-xm bg-accent" style="width: 17%;">
-    <q-tabs v-model="tab">
-      <q-item name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
-        <q-item-section class="text-black"> Youth<br>Classification</q-item-section>
-      </q-item>
-    </q-tabs>
-  </div>
+            <q-tabs v-model="tab">
+              <q-item href="/YouthClassification" :class="$page.component === 'YouthClassification'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
+                <q-item-section class="text-black"> Youth <br>Classification </q-item-section>
+              </q-item>
+            </q-tabs>
+          </div>
   <div class="q-pa-xm bg-accent" style="width: 17%;">
     <q-tabs v-model="tab">
       <q-item name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">

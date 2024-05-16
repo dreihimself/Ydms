@@ -73,4 +73,9 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('EducBg');
     }
+    public function YouthClassification()
+    {
+        // sleep(3);
+        return Inertia::render('YouthClassification');
+    }
 }
