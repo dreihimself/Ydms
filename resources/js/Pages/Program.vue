@@ -8,17 +8,17 @@
             <div class="container" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
 
 
-  <div class="q-pa-xm bg-primary" style="width: 17%;">
+  <div class="q-pa-xm bg-accent" style="width: 17%;">
     <q-tabs v-model="tab">
-      <q-item href="/DropdownSettings" :class="$page.component === 'civilstatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
-        <q-item-section class="text-white"> Activity </q-item-section>
+      <q-item href="/DropdownSettings" :class="$page.component === 'DropdownSettings'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
+        <q-item-section class="text-black"> Activity </q-item-section>
       </q-item>
     </q-tabs>
   </div>
-  <div class="q-pa-xm bg-accent" style="width: 17%;">
+  <div class="q-pa-xm bg-primary" style="width: 17%;">
     <q-tabs v-model="tab">
       <q-item href="/Program" :class="$page.component === 'program'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
-        <q-item-section class="text-black"> Program </q-item-section>
+        <q-item-section class="text-white"> Program </q-item-section>
       </q-item>
     </q-tabs>
   </div>
@@ -66,12 +66,8 @@
           <!-- Input fields -->
           <div class="user-settings-form">
             <q-form @submit="saveSettings" class="q-gutter-md" style="margin-top: 85px;">
-              <q-input outlined v-model="Acticity" label="Activty" dense required />
+              <q-input outlined v-model="Acticity" label="Program" dense required />
               <q-input outlined v-model="Title" label="Title" dense required />
-              <q-input v-model="date" outlined type="date" label="Date" dense required/>
-              <q-input outlined v-model="Venue" label="Venue" dense required />
-              <q-input outlined v-model="Facilatator" label="Facilatator/Training Inst." dense required />
-              <q-input outlined v-model="CostofTraining" label="Cost of Training" dense required />
               <div class="text-right">
                 <q-btn label="Save" type="submit" color="primary" />
               </div>
@@ -104,9 +100,9 @@
     setup() {
       const columns = [
         {
-          name: 'Activity',
+          name: 'Program',
           required: true,
-          label: 'Activity',
+          label: 'Program',
           align: 'left',
           field: row => row.name,
           format: val => `${val}`,
@@ -127,28 +123,7 @@
             color: 'white'
           }
         },
-        {
-          name: 'Date',
-          align: 'center',
-          label: 'Date',
-          field: 'Date',
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'Venue',
-          align: 'center',
-          label: 'Venue',
-          field: 'Venue',
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
+        
         {
           name: 'Status',
           label: 'Status',
