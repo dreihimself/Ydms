@@ -28,15 +28,14 @@ class RouteController extends Controller
     {
         // sleep(3);
         return Inertia::render('usersettings');
-<<<<<<< HEAD
+
     }
 
     public function login()
     {
         // sleep(3);
         return Inertia::render('Login');
-=======
->>>>>>> 54f94f3707037a6ca9e32cb0f086b45e58caebb5
+
     }
     public function skofficials()
     {
