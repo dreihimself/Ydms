@@ -50,16 +50,16 @@
     :default-opened="$page.component.startsWith('reports')"
 >
   <q-list>
-    <q-item clickable to="/kkprofilingsummary" :active="$page.component === 'kkprofilingsummary'">
+    <q-item clickable to="/kkprofilingsummary" :active="$page.component === 'kkprofilingsummary'? 'bg-grey-14' : null ">
       <q-item-section>KK Profiling Summary</q-item-section>
     </q-item>
-    <q-item clickable to="/skcouncilactivity" :active="$page.component === 'skcouncilactivity'">
+    <q-item clickable to="/skcouncilactivity" :active="$page.component === 'skcouncilactivity'? 'bg-grey-14' : null">
       <q-item-section>SK Council Activity</q-item-section>
     </q-item>
-    <q-item clickable to="/programssummary" :active="$page.component === 'programssummary'">
+    <q-item clickable to="/programssummary" :active="$page.component === 'programssummary'? 'bg-grey-14' : null">
       <q-item-section>Programs Summary</q-item-section>
     </q-item>
-    <q-item clickable to="/activitysummary" :active="$page.component === 'activitysummary'">
+    <q-item clickable to="/activitysummary" :active="$page.component === 'activitysummary'? 'bg-grey-14' : null">
       <q-item-section>Activity Summary</q-item-section>
     </q-item>
   </q-list>
@@ -71,19 +71,19 @@
     :default-opened="$page.component.startsWith('settings')"
   >
     <q-list>
-      <q-item href="/usersettings" :class="$page.component === 'usersettings'">
+      <q-item href="/usersettings" :class="$page.component === 'usersettings'? 'bg-grey-14' : null">
         <q-item-section>User Settings</q-item-section>
       </q-item>
-      <q-item href="/DropdownSettings" :class="$page.component === 'Activity'">
+      <q-item href="/DropdownSettings" :class="$page.component === 'DropdownSettings'? 'bg-grey-14' : null">
         <q-item-section>DropDown Setings</q-item-section>
       </q-item>
-      <q-item href="/SkOfficials" :class="$page.component === 'SkOfficials'">
+      <q-item href="/SkOfficials" :class="$page.component === 'SkOfficials'? 'bg-grey-14' : null">
         <q-item-section>Sk Officials</q-item-section>
       </q-item>
-      <q-item href="/brgyreg" :class="$page.component === 'BrgyReg'">
+      <q-item href="/brgyreg" :class="$page.component === 'BrgyReg'? 'bg-grey-14' : null">
         <q-item-section>Barangay Registry</q-item-section>
       </q-item>
-      <q-item href="/dept_head" :class="$page.component === 'DepartmentHead'">
+      <q-item href="/dept_head" :class="$page.component === 'DepartmentHead'? 'bg-grey-14' : null">
         <q-item-section>Department Head</q-item-section>
       </q-item>
     </q-list>
