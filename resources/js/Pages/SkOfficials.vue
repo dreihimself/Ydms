@@ -22,15 +22,15 @@
             <!--tab content here-->
             <div class="row">
             <div class="col">
-                <q-input v-model="search" filled type="search" label="Search" class="q-my-xl"  style="width:65%">
+                <q-input dense v-model="search" filled type="search" label="Search" class="q-my-xl"  style="width:63%;">
                     <template v-slot:append>
                     <q-icon name="search" />
                     </template>
                </q-input>
 
                <div class="user-settings-form"> <q-form @submit="saveSettings" class="q-gutter-md"  style="width:65%">
-              <q-input outlined v-model="name" label="Name" />
-              <q-input outlined v-model="username" label="Username" />
+              <q-input outlined v-model="name" dense label="Name" />
+              <q-input outlined v-model="username" dense label="Username" />
               <q-select
                     outlined
                     v-model="selectedUserType"
@@ -38,6 +38,7 @@
                     label="User Type"
                     emit-value
                     map-options
+                    dense
                   />
                   <q-select
                     outlined
@@ -46,9 +47,10 @@
                     label="Barangay"
                     emit-value
                     map-options
+                    dense
                   />
-              <q-input outlined v-model="mobileNumber" label="Mobile Number" type="tel" />
-              <q-input
+              <q-input dense outlined v-model="mobileNumber" label="Mobile Number" type="tel" />
+              <q-input dense
     outlined
     v-model="password"
     label="Password"

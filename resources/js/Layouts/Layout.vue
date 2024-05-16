@@ -15,7 +15,7 @@
             <div class="full-height drawer">
                 <h3 class="text-h5 text-primary q-ml-lg text-bold">LYDO</h3>
 
-                <div class="full-height wrapper text-white">
+                <div class="full-height wrapper text-white text-h6">
                     <div style="padding: 10px;">
                         <q-list padding>
                             <Navigation class="no-text-decoration" href="/home">
@@ -40,21 +40,21 @@
                                 </q-item>
                             </Navigation>
                             <Navigation href="">
-                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                <q-item class="q-ma-xm navigation-item text-white " :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         SK Activities
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
                             <Navigation class="m-ml-none" href="">
-                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
-                                    <q-item clickable v-ripple @click="showGenerateReports = !showGenerateReports" class="custom-font">
+                                <q-item class="q-ma-xm navigation-item text-white q-py-none" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                    <q-item clickable v-ripple @click="showGenerateReports = !showGenerateReports" class="q-px-none">
                                         <q-item-section>
                                             <q-item-label>Generate Reports</q-item-label>
                                         </q-item-section>
                                         </q-item>
                                         <q-slide-transition>
-                                        <div v-if="showGenerateReports" class="q-pa-md custom-font">
+                                        <div v-if="showGenerateReports" class="q-pa-md">
                                             <p>KK Profiling Summary</p>
                                             <p>SK Council Activity</p>
                                             <p>Programs Summary</p>
@@ -64,15 +64,15 @@
                                         </q-item>
 
                             </Navigation>
-                            <Navigation href="">
-                                <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
-                                    <q-item clickable v-ripple @click="showContent = !showContent" class="custom-font">
-                                        <q-item-section>
-                                            <q-item-label>Settings</q-item-label>
+                            <Navigation  href="">
+                                <q-item class="q-ma-xm navigation-item text-white q-py-none" :class="$page.component === '' ? 'bg-grey-14' : null">
+                                    <q-item clickable v-ripple @click="showContent = !showContent" class="q-px-none">
+                                        <q-item-section >
+                                            <q-item-label >Settings</q-item-label>
                                         </q-item-section>
                                         </q-item>
                                         <q-slide-transition>
-                                        <div v-if="showContent" class="q-pa-md custom-font">
+                                        <div v-if="showContent" class="q-pa-md">
                                             <Navigation href="usersettings">
                                                 <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === 'usersettings' ? 'bg-grey-14' : null">
                                                     <q-item-section>
