@@ -74,6 +74,9 @@
       <q-item href="/usersettings" :class="$page.component === 'usersettings'">
         <q-item-section>User Settings</q-item-section>
       </q-item>
+      <q-item href="/DropdownSettings" :class="$page.component === 'Activity'">
+        <q-item-section>DropDown Setings</q-item-section>
+      </q-item>
       <q-item href="/SkOfficials" :class="$page.component === 'SkOfficials'">
         <q-item-section>Sk Officials</q-item-section>
       </q-item>

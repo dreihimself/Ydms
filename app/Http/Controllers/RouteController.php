@@ -30,6 +30,12 @@ class RouteController extends Controller
         return Inertia::render('usersettings');
 
     }
+    public function DropdownSettings()
+    {
+        // sleep(3);
+        return Inertia::render('DropdownSettings');
+
+    }
 
     public function login()
     {
