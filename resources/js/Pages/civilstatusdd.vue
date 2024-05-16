@@ -1,10 +1,10 @@
 <template>
-    <Head title="Activity" />
+    <Head title="Civil Status" />
     <div>
         <div>
             <!--tab here-->
 
-            <Head title="Activity" />
+
             <div class="container" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
 
 
@@ -57,10 +57,92 @@
     </div>
 
         </div>
-        <div>
+        <div class="q-mx-xl q-px-xl">
             <!--tab content here-->
+            <div class="q-mt-xl q-pr-md" style="display: flex; align-items: center; gap: 5px; justify-content: end;">
+            <q-input outlined v-model="Addcivilstat" dense label="Add Option" style="width:25%"/>
+            <q-btn label="+" color="primary" @click="addOption" />
+        </div>
 
-            <h1>civil stat</h1>
+          <div class="q-pa-md" >
+            <q-table :rows="rows" :columns="columns "  row-key="name"  />
+          </div>
+
+
+
+
+
+
         </div>
 
 </template>
+
+
+<script>
+  import { ref, onMounted} from 'vue';
+
+
+ export default {
+    setup() {
+      const columns = [
+        {
+          name: 'Dropdown list',
+          required: true,
+          label: 'Dropdown list',
+          align: 'left',
+          field: row => row.name,
+          format: val => `${val}`,
+
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'Option',
+          align: 'center',
+          label: 'Option',
+          field: 'Option',
+
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+        {
+          name: 'Action',
+          align: 'center',
+          label: 'Action',
+          field: 'Action',
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
+
+
+      ];
+
+      const rows = ref([]);
+
+      const fetchData = async () => {
+        try {
+          const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
+          const data = await response.json();
+          rows.value = data;
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+
+      onMounted(() => {
+        fetchData();
+      });
+
+      return {
+        columns,
+        rows
+      };
+    }
+  };
+</script>
