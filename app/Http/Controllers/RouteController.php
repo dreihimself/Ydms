@@ -68,4 +68,9 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('Program');
     }
+    public function EducBg()
+    {
+        // sleep(3);
+        return Inertia::render('EducBg');
+    }
 }
