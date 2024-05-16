@@ -44,10 +44,10 @@
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
-                                <q-expansion-item 
+                                <q-expansion-item
     expand-separator
     label="Generate Reports"
-    :default-opened="$page.component.startsWith('reports')" 
+    :default-opened="$page.component.startsWith('reports')"
 >
   <q-list>
     <q-item clickable to="/kkprofilingsummary" :active="$page.component === 'kkprofilingsummary'">
@@ -65,22 +65,22 @@
   </q-list>
 </q-expansion-item>
 
-                                        <q-expansion-item 
-    expand-separator 
+                                        <q-expansion-item
+    expand-separator
     label="Settings"
-    :default-opened="$page.component.startsWith('settings')"  
+    :default-opened="$page.component.startsWith('settings')"
   >
     <q-list>
-      <q-item clickable to="/usersettings" :active="$page.component === 'usersettings'">
+      <q-item href="/usersettings" :class="$page.component === 'usersettings'">
         <q-item-section>User Settings</q-item-section>
       </q-item>
-      <q-item clickable to="/skofficials" :active="$page.component === 'skofficials'">
+      <q-item href="/SkOfficials" :class="$page.component === 'SkOfficials'">
         <q-item-section>Sk Officials</q-item-section>
       </q-item>
-      <q-item clickable to="/barangayregistry" :active="$page.component === 'barangayregistry'">
+      <q-item href="/brgyreg" :class="$page.component === 'BrgyReg'">
         <q-item-section>Barangay Registry</q-item-section>
       </q-item>
-      <q-item clickable to="/departmenthead" :active="$page.component === 'departmenthead'">
+      <q-item href="/dept_head" :class="$page.component === 'DepartmentHead'">
         <q-item-section>Department Head</q-item-section>
       </q-item>
     </q-list>

@@ -42,4 +42,14 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('SkOfficials');
     }
+    public function brgyreg()
+    {
+        // sleep(3);
+        return Inertia::render('BrgyReg');
+    }
+    public function dept_head()
+    {
+        // sleep(3);
+        return Inertia::render('DepartmentHead');
+    }
 }

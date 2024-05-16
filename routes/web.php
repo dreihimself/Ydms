@@ -35,8 +35,7 @@ Route::get('/', [RouteController::class, 'index']);
 Route::get('/home', [RouteController::class, 'home']);
 Route::get('/preference', [RouteController::class, 'preference']);
 Route::get('/usersettings', [RouteController::class, 'usersettings']);
-
 Route::get('/login', [RouteController::class, 'login']);
-
-
 Route::get('/SkOfficials', [RouteController::class, 'skofficials']);
+Route::get('/brgyreg', [RouteController::class, 'brgyreg']);
+Route::get('/dept_head', [RouteController::class, 'dept_head']);
