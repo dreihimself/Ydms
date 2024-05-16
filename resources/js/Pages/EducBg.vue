@@ -1,10 +1,10 @@
 <template>
-    <Head title="Activity" />
+    <Head title="Civil Status" />
     <div>
         <div>
             <!--tab here-->
 
-            <Head title="Activity" />
+
             <div class="container" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
 
 
@@ -15,10 +15,10 @@
       </q-item>
     </q-tabs>
   </div>
-  <div class="q-pa-xm bg-primary" style="width: 17%;">
+  <div class="q-pa-xm bg-accent" style="width: 17%;">
     <q-tabs v-model="tab">
       <q-item href="/Program" :class="$page.component === 'program'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
-        <q-item-section class="text-white"> Program </q-item-section>
+        <q-item-section class="text-black"> Program </q-item-section>
       </q-item>
     </q-tabs>
   </div>
@@ -29,10 +29,10 @@
       </q-item>
     </q-tabs>
   </div>
-  <div class="q-pa-xm bg-accent" style="width: 17%;">
+  <div class="q-pa-xm bg-primary" style="width: 17%;">
     <q-tabs v-model="tab">
       <q-item name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
-        <q-item-section class="text-black"> Educational<br>Background </q-item-section>
+        <q-item-section class="text-white"> Educational<br>Background </q-item-section>
 
       </q-item>
     </q-tabs>
@@ -57,35 +57,21 @@
     </div>
 
         </div>
-        <div>
+        <div class="q-mx-xl q-px-xl">
             <!--tab content here-->
-
-
-            <div class="row">
-        <div class="col">
-          <!-- Input fields -->
-          <div class="user-settings-form">
-            <q-form @submit="saveSettings" class="q-gutter-md" style="margin-top: 85px;">
-              <q-input outlined v-model="Acticity" label="Program" dense required />
-              <q-input outlined v-model="Title" label="Title" dense required />
-              <div class="text-right">
-                <q-btn label="Save" type="submit" color="primary" />
-              </div>
-            </q-form>
-          </div>
-          <!-- Input fields -->
+            <div class="q-mt-xl q-pr-md" style="display: flex; align-items: center; gap: 5px; justify-content: end;">
+            <q-input outlined v-model="Addcivilstat" dense label="Add Option" style="width:25%"/>
+            <q-btn label="+" color="primary" @click="addOption" />
         </div>
-        <div class="col-8">
-          <q-input v-model="search" outlined type="search" label="Search" dense style="margin-top: 30px; width: 65%; padding-left: 16px; margin-left: 33%;" class="justify-end">
-            <template v-slot:append>
-              <q-icon name="search" />
-            </template>
-          </q-input>
+
           <div class="q-pa-md" >
             <q-table :rows="rows" :columns="columns "  row-key="name"  />
           </div>
-        </div>
-      </div>
+
+
+
+
+
 
         </div>
 
@@ -100,34 +86,24 @@
     setup() {
       const columns = [
         {
-          name: 'Program',
+          name: 'Dropdown list',
           required: true,
-          label: 'Program',
+          label: 'Dropdown list',
           align: 'left',
           field: row => row.name,
           format: val => `${val}`,
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'Title',
-          align: 'center',
-          label: 'Title',
-          field: 'Title',
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
 
+          headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+        },
         {
-          name: 'Status',
-          label: 'Status',
-          field: 'Status',
+          name: 'Option',
+          align: 'center',
+          label: 'Option',
+          field: 'Option',
+
           headerStyle: {
             background: '#1976D2',
             color: 'white'
@@ -135,13 +111,16 @@
         },
         {
           name: 'Action',
+          align: 'center',
           label: 'Action',
           field: 'Action',
           headerStyle: {
             background: '#1976D2',
             color: 'white'
           }
-        }
+        },
+
+
       ];
 
       const rows = ref([]);
