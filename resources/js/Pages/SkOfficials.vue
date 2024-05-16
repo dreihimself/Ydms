@@ -22,48 +22,29 @@
             <!--tab content here-->
             <div class="row">
             <div class="col">
-                <q-input dense v-model="search" filled type="search" label="Search" class="q-my-xl"  style="width:63%;">
+                <q-input dense v-model="search" outlined type="search" label="Search" class="q-my-xl"  style="width:97%;">
                     <template v-slot:append>
                     <q-icon name="search" />
                     </template>
                </q-input>
 
-               <div class="user-settings-form"> <q-form @submit="saveSettings" class="q-gutter-md"  style="width:65%">
-              <q-input outlined v-model="name" dense label="Name" />
-              <q-input outlined v-model="username" dense label="Username" />
-              <q-select
-                    outlined
-                    v-model="selectedUserType"
-                    :options="userTypes"
-                    label="User Type"
-                    emit-value
-                    map-options
-                    dense
-                  />
-                  <q-select
-                    outlined
-                    v-model="selectedUserType"
-                    :options="userTypes"
-                    label="Barangay"
-                    emit-value
-                    map-options
-                    dense
-                  />
-              <q-input dense outlined v-model="mobileNumber" label="Mobile Number" type="tel" />
-              <q-input dense
-    outlined
-    v-model="password"
-    label="Password"
-    :type="isPwd ? 'password' : 'text'"
-  >
-    <template v-slot:append>
-      <q-icon
-        :name="isPwd ? 'visibility_off' : 'visibility'"
-        class="cursor-pointer"
-        @click="isPwd = !isPwd"
-      />
-    </template>
-  </q-input>
+               <div class=""> <q-form @submit="saveSettings" class="q-gutter-md"  style="width:100%">
+              <q-input outlined v-model="name" dense label="Name" disable/>
+              <div class="input-container">
+                <q-input v-model="date" outlined dense type="date" label="Birth Date" class="q-py-none" disable/>
+                <q-input outlined v-model="Age" label="Age" dense disable/>
+              </div>
+              <q-input outlined v-model="sex" dense label="Sex" disable/>
+              <q-input outlined v-model="Barangay" dense label="Barangay" disable/>
+              <q-input dense outlined v-model="mobileNumber" label="Mobile Number" type="tel" disable />
+              <q-input dense outlined v-model="email" label="Email" type="email" disable />
+              <q-select outlined dense required
+    v-model="selected"
+    :options="options"
+    label="Position:"
+  />
+
+
 
               <div class="text-right">
                   <q-btn label="Save" type="submit" color="primary" />
@@ -75,11 +56,86 @@
 
 
             </div>
-            <div class="col">
-                .col
+            <div class="col-8">
+                <div class="input-container q-mt-xl"><q-select outlined dense required
+                v-model="selected"
+                :options="options"
+                label="Select Barangay:"
+                style="width:65%"
+              />
+
+              <q-btn label="print" type="submit" color="primary" />
+
+
+
+              </div>
+              <div class="q-pa-md">
+                <q-table
+                 flat bordered
+                  :rows="rows"
+                  :columns="columns"
+                  style="max-height: 100%; overflow-y: auto;"
+                />
+              </div>
             </div>
             </div>
 
         </div>
     </div>
 </template>
+<style>
+.custom-font {
+  font-size: 1.35em; /* Adjust the size as needed */
+}
+
+.user-settings-form {
+  width: 550px; /* Adjust the width as needed */
+  /* Add any other styles to customize the form's appearance */
+  padding: 15px;
+  border-radius: 20px;
+  margin-left: -30px;
+}
+
+.input-container {
+  display: flex; /* Enable flexbox */
+  justify-content: space-around; /* Distribute inputs evenly */
+  align-items: center; /* Align vertically (optional) */
+  gap: 5px; /* Add spacing between inputs */
+}
+
+
+</style>
+
+<script>
+const columns = [
+  {
+    align: 'left',
+    sortable: false
+  },
+  { name: 'Position',  label: 'Position', field: 'Position', align:'left'},
+  { name: 'name', label: 'name', field: 'name' },
+  { name: 'Sex', label: 'Sex', field: 'Sex' },
+  { name: 'mobile', label: 'mobile number', field: 'mobile' },
+  { name: 'email', label: 'email ', field: 'email' , align:'center'},
+  { name: 'action', label: 'action ', field: 'action' },
+
+]
+const rows = [
+  {
+    Position: 'SK Chairman',
+    name: 'jopay',
+    Sex: 'male',
+    mobile: '09876543212',
+    email: 'jopay@kumustakana.com',
+    action: 'edit'
+  },
+]
+export default {
+  setup () {
+    return {
+      columns,
+      rows
+    }
+  }
+}
+</script>
