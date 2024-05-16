@@ -1,5 +1,5 @@
 <template>
-    <div class="q-ma-none flex flex-center bg-grey-5" style="height: 100vh;">
+    <div class="q-ma-none flex flex-center" style="height: 100vh;">
       <div class="form-container">
         <q-card class="q-pa-none q-ma-none br-xs bg-white overflow-hidden">
           <div class="q-pa-none">

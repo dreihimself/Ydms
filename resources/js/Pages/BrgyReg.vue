@@ -46,89 +46,115 @@
     </q-layout>
   </template>
 
-  <script>
-  import { ref, onMounted } from 'vue';
+<script>
+import { ref, onMounted } from 'vue';
 
-  export default {
-    setup() {
-      const columns = [
-        {
-          name: 'name',
-          required: true,
-          label: 'Barangay Name',
-          align: 'left',
-          field: row => row.name,
-          format: val => `${val}`,
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'captain',
-          align: 'center',
-          label: 'Name of Captain',
-          field: 'captain',
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'mobile_number',
-          label: 'Mobile No.',
-          field: 'mobile_number',
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'sknme',
-          label: 'SK Name',
-          field: 'carbs',
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'skmon',
-          label: 'SK Mobile No.',
-          field: 'protein',
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
+export default {
+  setup() {
+    const columns = [
+      {
+        name: 'position',
+        required: true,
+        label: 'Position',
+        align: 'left',
+        field: row => row.name,
+        format: val => `${val}`,
+        sortable: true,
+        headerStyle: {
+          background: '#1976D2',
+          color: 'white'
         }
-      ];
-
-      const rows = ref([]);
-
-      const fetchData = async () => {
-        try {
-          const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
-          const data = await response.json();
-          rows.value = data;
-        } catch (error) {
-          console.error('Error fetching data:', error);
+      },
+      {
+        name: 'name',
+        align: 'center',
+        label: 'Name',
+        field: 'captain',
+        sortable: true,
+        headerStyle: {
+          background: '#1976D2',
+          color: 'white'
         }
-      };
+      },
+      {
+        name: 'sex',
+        align: 'center',
+        label: 'Sex',
+        field: 'sex',
+        sortable: true,
+        headerStyle: {
+          background: '#1976D2',
+          color: 'white'
+        }
+      },
 
-      onMounted(() => {
-        fetchData();
-      });
+      {
+        name: 'mobile_number',
+        label: 'Mobile No.',
+        field: 'mobile_number',
+        sortable: true,
+        headerStyle: {
+          background: '#1976D2',
+          color: 'white'
+        }
+      },
+      {
+        name: 'email',
+        label: 'E-mail',
+        field: 'email',
+        headerStyle: {
+          background: '#1976D2',
+          color: 'white'
+        }
+      },
+      {
+        name: 'action',
+        label: 'Action',
+        field: 'action',
+        headerStyle: {
+          background: '#1976D2',
+          color: 'white'
+        },
+        align: 'center',
+        format: (val, row) => {
+          return {
+            label: 'Edit',
+            onClick: () => editRow(row)
+          };
+        }
+      }
+    ];
 
-      return {
-        columns,
-        rows
-      };
-    }
-  };
-  </script>
+    const rows = ref([]);
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
+        const data = await response.json();
+        rows.value = data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    const editRow = (row) => {
+      console.log('Edit row:', row);
+      // Implement your edit logic here
+    };
+
+    onMounted(() => {
+      fetchData();
+    });
+
+    return {
+      columns,
+      rows,
+      editRow
+    };
+  }
+};
+</script>
+
 
   <style>
   .container {
