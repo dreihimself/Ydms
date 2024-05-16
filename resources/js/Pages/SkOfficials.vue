@@ -5,7 +5,7 @@
             <!--tab here-->
             <div class="q-pa-md" style="margin-left: -45px">
 
-      <div class="q-gutter-y-md bg-blue" style="width: 370px; margin-left: 30px;">
+      <div class="q-gutter-y-md bg-primary" style="width: 370px; margin-left: 30px;">
 <q-tabs v-model="tab">
 <q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
   <div class="text-white text-bold" style="width: 100%; text-align: left">
@@ -74,7 +74,7 @@
                  flat bordered
                   :rows="rows"
                   :columns="columns"
-                  style="max-height: 100%; overflow-y: auto;"
+                  style="max-height: 100%; overflow-y: auto; thead{background-color: #1976D2;}"
                 />
               </div>
             </div>
@@ -110,7 +110,12 @@
 const columns = [
   {
     align: 'left',
-    sortable: false
+    sortable: false,
+    headerStyle: {
+            background: '#1976D2',
+            color: 'white'
+          }
+
   },
   { name: 'Position',  label: 'Position', field: 'Position', align:'left'},
   { name: 'name', label: 'name', field: 'name' },
