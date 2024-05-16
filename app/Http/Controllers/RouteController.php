@@ -56,6 +56,6 @@ class RouteController extends Controller
     public function dept_head()
     {
         // sleep(3);
-        return Inertia::render('DepartmentHead');
+        return Inertia::render('DeptHead');
     }
 }
