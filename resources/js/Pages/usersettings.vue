@@ -3,100 +3,94 @@
 
   <div class="q-pa-md" style="margin-left: -45px">
       
-      <div class="q-gutter-y-md bg-blue" style="width: 370px; margin-left: 30px;">
-<q-tabs v-model="tab">
-<q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
-  <div class="text-white" style="width: 100%; text-align: left">
-    Barangay Registry
-  </div>
-</q-tab>
-</q-tabs>
-</div>
+    <div class="q-gutter-y-md bg-blue" style="width: 370px; margin-left: 30px;">
+      <q-tabs v-model="tab">
+        <q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
+          <div class="text-white" style="width: 100%; text-align: left">
+            User Settings
+          </div>
+        </q-tab>
+      </q-tabs>
+    </div>
   </div>
   <q-separator color="black" style="margin-top: -17px; margin-left: 1px;"/>
-         
-
-        
-  <div class="row">
-      <div class="col-6">
-        <div class="q-pa-md row"> <div class="col-4">
-          <div class="user-settings-form"> <q-form @submit="saveSettings" class="q-gutter-md">
-              <q-input outlined v-model="name" label="Name" />
-              <q-input outlined v-model="username" label="Username" />
-              <q-select
-                    outlined
-                    v-model="selectedUserType"
-                    :options="userTypes"
-                    label="User Type"
-                    emit-value
-                    map-options
-                  />
-                  <q-select
-                    outlined
-                    v-model="selectedUserType"
-                    :options="userTypes"
-                    label="Barangay"
-                    emit-value
-                    map-options
-                  />
-              <q-input outlined v-model="mobileNumber" label="Mobile Number" type="tel" />
-              <q-input
-    outlined
-    v-model="password"
-    label="Password"
-    :type="isPwd ? 'password' : 'text'"
-  >
-    <template v-slot:append>
-      <q-icon
-        :name="isPwd ? 'visibility_off' : 'visibility'"
-        class="cursor-pointer"
-        @click="isPwd = !isPwd"
-      />
-    </template>
-  </q-input>
   
+  <div class="row">
+    <div class="col-6">
+      <div class="q-pa-md row">
+        <div class="col-4">
+          <div class="user-settings-form">
+            <q-form @submit="saveSettings" class="q-gutter-md">
+              <div class="input-container">
+                <q-input outlined v-model="FirstName" label="First Name" dense required/>
+                <q-input outlined v-model="middleName" label="Middle Name" dense />
+                <q-input outlined v-model="LastName" label="Last Name" dense required/>
+                <q-input outlined v-model="Suffix" label="Suffix" dense />
+              </div>
+              <q-input outlined v-model="username" label="Username" dense required/>
+              <q-select outlined v-model="selectedUserType" :options="userTypes" label="User Type" emit-value map-options dense />
+              <q-select outlined v-model="selectedUserType" :options="userTypes" label="Barangay" emit-value map-options dense />
+              <q-input outlined v-model="mobileNumber" label="Mobile Number" type="tel" dense />
+              <q-input
+                outlined
+                v-model="password"
+                label="Password"
+                :type="isPwd ? 'password' : 'text'"
+                dense
+              >
+                <template v-slot:append>
+                  <q-icon
+                    :name="isPwd ? 'visibility_off' : 'visibility'"
+                    class="cursor-pointer"
+                    @click="isPwd = !isPwd"
+                  />
+                </template>
+              </q-input>
               <div class="text-right"> 
-                  <q-btn label="Save" type="submit" color="primary" />
-                </div>
+                <q-btn label="Save" type="submit" color="primary" />
+              </div>
             </q-form>
           </div>
         </div>
       </div>
+    </div>
 
-
-      </div>
-      <div class="col-6">
-        <div class="q-pa-ms" style="width:650px; height: 500px; position: absolute; top: 600; right: 10; margin-top: 30px;">
-    <q-table
-      flat bordered
-      :rows="rows"
-      :columns="columns"
-      row-key="name"
-    />
-  </div>
-
+    <div class="col-6">
+      <q-input v-model="search" filled type="search" label="Search" dense style="margin-top: 30px;">
+        <template v-slot:append>
+          <q-icon name="search" />
+        </template>
+      </q-input>
+      <div class="q-pa-ms" style="width: 670px; height: 400px; margin-top: 20px; margin-left: -60px;">
+        <q-table
+          flat bordered
+          :rows="rows"
+          :columns="columns"
+          row-key="name"
+          style="max-height: 100%; overflow-y: auto;"
+        />
       </div>
     </div>
+  </div>
 </template>
 
 <script>
- const columns = [
+import { ref } from 'vue';
+const columns = [
    {
      name: 'name',
      required: true,
-     label: 'Dessert (100g serving)',
+     label: 'UserName',
      align: 'left',
      field: row => row.name,
      format: val => `${val}`,
      sortable: true
    },
-   { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-   { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-   { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-   { name: 'protein', label: 'Protein (g)', field: 'protein' },
-   { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
-   { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-   { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
+   { name: 'UserType', align: 'center', label: 'UserType', field: 'calories', sortable: true },
+   { name: 'Barangay', label: 'Barangay', field: 'fat', sortable: true },
+   { name: 'MobileNumber', label: 'Mobile Number', field: 'carbs' },
+   { name: 'Status', label: 'Status', field: 'protein' },
+   { name: 'Action', label: 'Action', field: 'sodium' },
  ]
  
  const rows = [
@@ -201,26 +195,47 @@
      iron: '6%'
    }
  ]
- 
- export default {
-   setup () {
-     return {
-       columns,
-       rows
-     }
-   }
- }
- </script>
+
+export default {
+  setup() {
+    return {
+      columns,
+      rows,
+      FirstName: ref(''),
+      middleName: ref(''),
+      LastName: ref(''),
+      Suffix: ref(''),
+      username: ref(''),
+      selectedUserType: ref(null),
+      userTypes: ['Type A', 'Type B', 'Type C'],
+      mobileNumber: ref(''),
+      password: ref(''),
+      isPwd: ref(false),
+      tab: ref('mails')
+    };
+  }
+};
+</script>
 
 <style>
 .custom-font {
-font-size: 1.35em; /* Adjust the size as needed */
+  font-size: 1.35em; /* Adjust the size as needed */
 }
 
 .user-settings-form {
-width: 500px; /* Adjust the width as needed */
-/* Add any other styles to customize the form's appearance */
-padding: 15px;
-border-radius: 5px;
+  width: 550px; /* Adjust the width as needed */
+  /* Add any other styles to customize the form's appearance */
+  padding: 15px;
+  border-radius: 20px;
+  margin-left: -30px;
 }
+
+.input-container {
+  display: flex; /* Enable flexbox */
+  justify-content: space-around; /* Distribute inputs evenly */
+  align-items: center; /* Align vertically (optional) */
+  gap: 5px; /* Add spacing between inputs */
+}
+
+
 </style>
