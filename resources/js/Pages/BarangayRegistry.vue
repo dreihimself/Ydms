@@ -27,7 +27,7 @@
                                                 <q-input outlined v-model="captainName" dense label="Name of Captain" disable/>
                                                 <q-input dense outlined v-model="CaptMobileNumber" label="Captain Mobile No." type="tel" disable />
                                                 <q-input dense outlined v-model="SKCaptainName" label="Name of SK Captain" disable />
-                                                <q-input dense outlined v-model="SKMobileNo" label="SK Mobile No." type="tel" disable />
+                                                <q-input dense outlined v-model="SKMobileNo" l  abel="SK Mobile No." type="tel" disable />
 
                                                 <div class="text-right">
                                                     <q-btn label="Save" type="submit" color="primary" />

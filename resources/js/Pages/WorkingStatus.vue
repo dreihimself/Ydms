@@ -1,5 +1,5 @@
 <template>
-    <Head title="Activity" />
+    <Head title="Working Status" />
     <div>
         <div>
             <!--tab here-->

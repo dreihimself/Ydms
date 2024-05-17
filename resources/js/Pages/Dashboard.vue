@@ -22,11 +22,11 @@
       </div>
     </q-page>
   </template>
-  
+
   <script>
   import { ref, onMounted } from 'vue';
 //  import Chart from 'chart.js';
-  
+
   export default {
     setup() {
       // Sample data for the cards (replace with fetched data)
@@ -41,12 +41,12 @@
         { title: 'With Special Needs', chartType: 'bar', data: [60, 20, 40, 10, 30] },
         { title: 'Youth Classification', chartType: 'bar', data: [30, 40, 20, 50, 10] }
       ]);
-  
+
       // Method to initialize chart for each card
       const initializeCharts = () => {
         cards.value.forEach((card, index) => {
           const ctx = document.getElementById(`chart-${index}`).getContext('2d');
-  
+
           // Determine the chart type
           let chartType;
           switch (card.chartType) {
@@ -63,7 +63,7 @@
             default:
               chartType = 'bar';
           }
-  
+
           // Initialize the chart
           new Chart(ctx, {
             type: chartType,
@@ -89,19 +89,19 @@
           });
         });
       };
-  
+
       // Initialize charts when component is mounted
       onMounted(() => {
         initializeCharts();
       });
-  
+
       return {
         cards
       };
     }
   };
   </script>
-  
+
   <style>
   /* Style for the dashboard wrapper */
   .dashboard {
@@ -114,4 +114,3 @@
     text-align: center;
   }
   </style>
-  

@@ -1,5 +1,5 @@
 <template>
-    <Head title="Civil Status" />
+    <Head title="Educational Background" />
     <div>
         <div>
             <!--tab here-->
