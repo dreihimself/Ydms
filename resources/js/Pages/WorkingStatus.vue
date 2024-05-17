@@ -46,7 +46,7 @@
   </div>
   <div class="q-pa-xm bg-primary" style="width: 17%;">
     <q-tabs v-model="tab">
-        <q-item  href="/workstatus" :class="$page.component === 'workstatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
+        <q-item  href="/workingstatus" :class="$page.component === 'WorkingStatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
         <q-item-section class="text-white"> Working Status </q-item-section>
       </q-item>
     </q-tabs>
