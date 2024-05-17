@@ -17,6 +17,7 @@
         "@quasar/extras": "^1.16.11",
         "@vitejs/plugin-vue": "^5.0.4",
         "chart.js": "^4.4.2",
-        "quasar": "^2.16.2"
+        "quasar": "^2.16.2",
+        "vue-chart.js": "^0.2.0"
     }
 }

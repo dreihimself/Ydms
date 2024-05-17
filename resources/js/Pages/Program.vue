@@ -4,7 +4,7 @@
         <div>
             <!--tab here-->
 
-            <Head title="Activity" />
+            <Head title="Program" />
             <div class="container" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
 
 

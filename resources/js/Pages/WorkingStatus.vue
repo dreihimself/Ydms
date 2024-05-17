@@ -4,7 +4,7 @@
         <div>
             <!--tab here-->
 
-            <Head title="Activity" />
+            <Head title="Working Status" />
             <div class="container" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
 
 
@@ -64,7 +64,7 @@
   <div class="input-container" style="width: 600px;">
     <q-input dense outlined required v-model="name" label="Enter new list" style="width: 100%; padding: 10px; padding-top: 1px; padding-bottom: 1px; box-sizing: border-box;" />
     <!-- Quasar Button as Enter Button -->
-    <q-btn color="accent" text-color="black" @click="submitInput">Add</q-btn>
+    <q-btn label="+" color="primary" @click="addOption" />
   </div>
 </div>
 
