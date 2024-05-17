@@ -71,7 +71,7 @@
     :default-opened="$page.component.startsWith('settings')"
   >
     <q-list>
-      <q-item href="/usersettings" :class="$page.component === 'usersettings'? 'bg-grey-14' : null">
+      <q-item href="/usersettings" :class="$page.component === 'UserSettings'? 'bg-grey-14' : null">
         <q-item-section>User Settings</q-item-section>
       </q-item>
       <q-item href="/DropdownSettings" :class="$page.component === 'DropdownSettings'? 'bg-grey-14' : null">

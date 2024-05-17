@@ -27,7 +27,7 @@ class RouteController extends Controller
     public function usersettings()
     {
         // sleep(3);
-        return Inertia::render('usersettings');
+        return Inertia::render('UserSettings');
 
     }
     public function DropdownSettings()
@@ -63,7 +63,7 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('CivilStatus');
     }
-    public function Program()
+    public function program()
     {
         // sleep(3);
         return Inertia::render('Program');
@@ -73,7 +73,7 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('EducationalBackground');
     }
-    public function YouthClassification()
+    public function youthclassification()
     {
         // sleep(3);
         return Inertia::render('YouthClassification');
