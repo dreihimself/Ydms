@@ -24,14 +24,14 @@
   </div>
   <div class="q-pa-xm bg-accent" style="width: 17%;">
     <q-tabs v-model="tab">
-      <q-item  href="/civilstatus" :class="$page.component === 'civilstatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
+      <q-item  href="/civilstatus" :class="$page.component === 'CivilStatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
         <q-item-section class="text-black"> Civil Status </q-item-section>
       </q-item>
     </q-tabs>
   </div>
   <div class="q-pa-xm bg-accent" style="width: 17%;">
     <q-tabs v-model="tab">
-        <q-item  href="/EducBg" :class="$page.component === 'EducBg'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
+        <q-item  href="/educationalbackground" :class="$page.component === 'EducationalBackground'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
         <q-item-section class="text-black"> Educational<br>Background </q-item-section>
 
       </q-item>
@@ -46,7 +46,7 @@
           </div>
   <div class="q-pa-xm bg-accent" style="width: 17%;">
     <q-tabs v-model="tab">
-      <q-item  href="/Workstat" :class="$page.component === 'Workstat'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
+      <q-item  href="/workingstatus" :class="$page.component === 'WorkingStatus'" name="mails" class="q-tab q-pa-none q-pl-none q-mx-none text-center">
         <q-item-section class="text-black"> Working Status </q-item-section>
       </q-item>
     </q-tabs>

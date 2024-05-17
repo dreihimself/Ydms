@@ -80,10 +80,10 @@
       <q-item href="/SkOfficials" :class="$page.component === 'SkOfficials'? 'bg-grey-14' : null">
         <q-item-section>Sk Officials</q-item-section>
       </q-item>
-      <q-item href="/brgyreg" :class="$page.component === 'BrgyReg'? 'bg-grey-14' : null">
+      <q-item href="/barangayregistry" :class="$page.component === 'BrgyReg'? 'bg-grey-14' : null">
         <q-item-section>Barangay Registry</q-item-section>
       </q-item>
-      <q-item href="/dept_head" :class="$page.component === 'DepartmentHead'? 'bg-grey-14' : null">
+      <q-item href="/departmenthead" :class="$page.component === 'DepartmentHead'? 'bg-grey-14' : null">
         <q-item-section>Department Head</q-item-section>
       </q-item>
     </q-list>

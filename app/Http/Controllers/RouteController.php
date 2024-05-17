@@ -48,39 +48,39 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('SkOfficials');
     }
-    public function brgyreg()
+    public function barangayregistry()
     {
         // sleep(3);
-        return Inertia::render('BrgyReg');
+        return Inertia::render('BarangayRegistry');
     }
-    public function dept_head()
+    public function departmenthead()
     {
         // sleep(3);
-        return Inertia::render('DeptHead');
+        return Inertia::render('DepartmentHead');
     }
     public function civilstatus()
     {
         // sleep(3);
-        return Inertia::render('civilstatusdd');
+        return Inertia::render('CivilStatus');
     }
     public function Program()
     {
         // sleep(3);
         return Inertia::render('Program');
     }
-    public function EducBg()
+    public function educationalbackground()
     {
         // sleep(3);
-        return Inertia::render('EducBg');
+        return Inertia::render('EducationalBackground');
     }
     public function YouthClassification()
     {
         // sleep(3);
         return Inertia::render('YouthClassification');
     }
-    public function Workstat()
+    public function workingstatus()
     {
         // sleep(3);
-        return Inertia::render('WorkStat');
+        return Inertia::render('WorkingStatus');
     }
 }

@@ -5,7 +5,7 @@
             <!--tab here-->
             <div class="q-pa-md" style="margin-left: -45px">
 
-      <div class="q-gutter-y-md bg-primary" style="width: 20%; margin-left: 30px;">
+    <div class="q-gutter-y-md bg-primary" style="width: 15%; margin-left: 30px;">
 <q-tabs v-model="tab">
 <q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
   <div class="text-white text-bold" style="width: 100%; text-align: left">
@@ -30,7 +30,7 @@
 
                <div class=""> <q-form @submit="saveSettings" class="q-gutter-md"  style="width:100%">
               <q-input outlined v-model="name" dense label="Name" disable/>
-              <div class="input-container">
+              <div class="input-container ">
                 <q-input v-model="date" outlined dense type="date" label="Birth Date" class="q-py-none" disable style="width:100%"/>
                 <q-input outlined v-model="Age" label="Age" dense disable style="width:100%"/>
               </div>

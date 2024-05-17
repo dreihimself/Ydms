@@ -1,24 +1,23 @@
 <template>
     <Head title="Department Head" />
+    <div>
         <div>
-            <div>
-                <!--tab here-->
+            <!--tab here-->
+            <div class="q-pa-md" style="margin-left: -45px">
 
-                    <div class="q-pa-md" style="margin-left: -45px;">
-
-                        <div class="q-gutter-y-md bg-primary" style="width: 15%; margin-left: 39px;">
-                            <q-tabs v-model="tab">
-                                <q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
-                                    <div class="text-white text-bold" style="width: 100%; text-align: left">
-                                        Department Head
-                                    </div>
-                                </q-tab>
-                            </q-tabs>
+    <div class="q-gutter-y-md bg-primary" style="width: 15%; margin-left: 30px; ">
+<q-tabs v-model="tab">
+<q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
+  <div class="text-white text-bold" style="width: 100%; text-align: left">
+    Department Head
+  </div>
+</q-tab>
+</q-tabs>
+</div>
+  </div>
+  <q-separator color="black" style="margin-top: -17px; margin-left: 10px;"/>
                         </div>
-                    </div>
-                        <q-separator color="black" style="margin-top: -17px; margin-left: 10px;"/>
-                        </div>
-                            <div style="padding: 20px;">
+                            <div style="padding: 20px; margin-top: 45px;">
                                 <!--tab content here-->
                                 <div class="row">
                                     <div class="col">
