@@ -39,6 +39,7 @@ Route::get('/DropdownSettings', [RouteController::class, 'Dropdownsettings']);
 Route::get('/login', [RouteController::class, 'login']);
 Route::get('/SkOfficials', [RouteController::class, 'skofficials']);
 Route::get('/usersettings', [UserController::class, 'usersettings']);
+Route::post('/usersettings', [UserController::class, 'usersettings']);
 Route::get('/barangayregistry', [RouteController::class, 'barangayregistry']);
 Route::get('/departmenthead', [RouteController::class, 'departmenthead']);
 Route::get('/civilstatus', [RouteController::class, 'civilstatus']);
