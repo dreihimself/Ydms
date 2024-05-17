@@ -5,7 +5,7 @@
             <!--tab here-->
             <div class="q-pa-md" style="margin-left: -45px">
 
-    <div class="q-gutter-y-md bg-primary" style="width: 15%; margin-left: 30px;">
+    <div class="q-gutter-y-md bg-primary" style="width: 16%; margin-left: 30px;">
 <q-tabs v-model="tab">
 <q-tab name="mails" class="q-tab q-pa-none q-pl-none q-mx-none">
   <div class="text-white text-bold" style="width: 100%; text-align: left">
