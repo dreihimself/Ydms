@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\civilStatusController;
+use App\Http\Controllers\ProgramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,7 @@ Route::get('/civil_status', [civilStatusController::class, 'getcivilstatus']);
 
 Route::post('/activity', [ActivityController::class, 'activity']);
 Route::get('/activity', [ActivityController::class, 'getActivity']);
+
+//ProgramRoute
+Route::post('/program_entry', [ProgramController::class, 'program_entry']);
+Route::get('/program_entry', [ProgramController::class, 'getProgram']);

@@ -66,10 +66,10 @@
           <!-- Input fields -->
           <div class="user-settings-form">
             <q-form @submit="saveSettings" class="q-gutter-md" style="margin-top: 85px;">
-              <q-input outlined v-model="Acticity" label="Program" dense required />
+              <q-input outlined v-model="Program" label="Program" dense required />
               <q-input outlined v-model="Title" label="Title" dense required />
               <div class="text-right">
-                <q-btn label="Save" type="submit" color="primary" />
+                <q-btn label="Save" @click="saveSettings" color="primary" />
               </div>
             </q-form>
           </div>
@@ -93,77 +93,69 @@
 
 
 <script>
-  import { ref, onMounted} from 'vue';
 
+  import axios from 'axios';
 
- export default {
-    setup() {
-      const columns = [
-        {
-          name: 'Program',
-          required: true,
-          label: 'Program',
-          align: 'left',
-          field: row => row.name,
-          format: val => `${val}`,
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'Title',
-          align: 'center',
-          label: 'Title',
-          field: 'Title',
-          sortable: true,
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-
-        {
-          name: 'Status',
-          label: 'Status',
-          field: 'Status',
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'Action',
-          label: 'Action',
-          field: 'Action',
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        }
+  const columns = [
+      { name: 'prog', label: 'Program', field: 'prog', align: 'left', headerStyle: { background: '#1976D2', color: 'white' } },
+  { name: 'titl', label: 'Title', field: 'titl', headerStyle: { background: '#1976D2', color: 'white' } }
       ];
 
-      const rows = ref([]);
+ export default {
+  data(){
+    return{
+      Program: '',
+      Title: '',
+      Search: '',
+      columns,
+      rows: []
 
-      const fetchData = async () => {
-        try {
-          const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
-          const data = await response.json();
-          rows.value = data;
-        } catch (error) {
+    };
+  },
+
+  methods: {
+    fetchData() {
+      axios
+        .get('/api/program_entry')
+        .then(response => {
+          this.rows = response.data;
+        })
+        .catch(error => {
           console.error('Error fetching data:', error);
-        }
+        });
+      },
+      saveSettings() {
+      const payload = {
+        prog: this.Program,
+        titl: this.Title
       };
 
-      onMounted(() => {
-        fetchData();
-      });
-
-      return {
-        columns,
-        rows
-      };
+      axios
+        .post('/api/program_entry', payload)
+        .then(response => {
+          console.log(response.data);
+          this.resetForm();
+          this.fetchData();
+        })
+        .catch(error => {
+          if (error.response) {
+            console.error('Error response:', error.response.data);
+            console.error('Error status:', error.response.status);
+            console.error('Error headers:', error.response.headers);
+          } else if (error.request) {
+            console.error('Error request:', error.request);
+          } else {
+            console.error('Error message:', error.message);
+          }
+        });
+    },
+    resetForm() {
+      this.Program = '';
+      this.Title = '';
     }
-  };
+  },
+  created() {
+    this.fetchData();
+  }
+};
 </script>
