@@ -59,13 +59,17 @@
         </div>
         <div class="q-mx-xl q-px-xl">
             <!--tab content here-->
-            <div class="q-mt-xl q-pr-md" style="display: flex; align-items: center; gap: 5px; justify-content: end;">
-            <q-input outlined v-model="Addcivilstat" dense label="Add Option" style="width:25%"/>
+            <div class="q-mt-xl q-pr-md" >
+            <q-form class="q-gutter-md" style="width:100%; display: flex; align-items: center; gap: 5px; justify-content: end;">
+            <q-input outlined v-model="civilstatus" dense label="Add Option" style="width:25%"/>
+            <q-input  outlined v-model="optionstatus" value="Active" dense label="Add Option" style="width:25%" class="hidden"/>
+
             <q-btn label="+" color="primary" @click="addOption" />
+        </q-form>
         </div>
 
           <div class="q-pa-md" >
-            <q-table :rows="rows" :columns="columns "  row-key="name"  />
+            <!-- <q-table :rows="rows" :columns="columns "  row-key="name"  /> -->
           </div>
 
 
@@ -79,70 +83,119 @@
 
 
 <script>
-  import { ref, onMounted} from 'vue';
+import axios from 'axios';
 
 
- export default {
-    setup() {
-      const columns = [
-        {
-          name: 'Dropdown list',
-          required: true,
-          label: 'Dropdown list',
-          align: 'left',
-          field: row => row.name,
-          format: val => `${val}`,
+//  export default {
+//     setup() {
+//       const columns = [
+//         {
+//           name: 'Dropdown list',
+//           required: true,
+//           label: 'Dropdown list',
+//           align: 'left',
+//           field: row => row.name,
+//           format: val => `${val}`,
 
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'Option',
-          align: 'center',
-          label: 'Option',
-          field: 'Option',
+//           headerStyle: {
+//             background: '#1976D2',
+//             color: 'white'
+//           }
+//         },
+//         {
+//           name: 'Option',
+//           align: 'center',
+//           label: 'Option',
+//           field: 'Option',
 
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
-        {
-          name: 'Action',
-          align: 'center',
-          label: 'Action',
-          field: 'Action',
-          headerStyle: {
-            background: '#1976D2',
-            color: 'white'
-          }
-        },
+//           headerStyle: {
+//             background: '#1976D2',
+//             color: 'white'
+//           }
+//         },
+//         {
+//           name: 'Action',
+//           align: 'center',
+//           label: 'Action',
+//           field: 'Action',
+//           headerStyle: {
+//             background: '#1976D2',
+//             color: 'white'
+//           }
+//         },
 
 
-      ];
+//       ];
 
-      const rows = ref([]);
+//       const rows = ref([]);
 
-      const fetchData = async () => {
-        try {
-          const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
-          const data = await response.json();
-          rows.value = data;
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
+//       const fetchData = async () => {
+//         try {
+//           const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
+//           const data = await response.json();
+//           rows.value = data;
+//         } catch (error) {
+//           console.error('Error fetching data:', error);
+//         }
+//       };
+
+//       onMounted(() => {
+//         fetchData();
+//       });
+
+//       return {
+//         columns,
+//         rows
+//       };
+//     }
+//   };
+
+export default {
+  data() {
+    return {
+      civilstatus: '',
+      optionstatus: 'Active'
+    };
+  },
+  methods: {
+    addOption() {
+      const payload = {
+        civilstatus: this.civilstatus,
+        optionstatus: this.optionstatus,
+
       };
 
-      onMounted(() => {
-        fetchData();
-      });
+      axios
+        .post('/api/civil_status', payload) //check mo kay chatgpt eto if tama yung mga forms(mga input textbox)
+        .then(response => {
+          console.log(response.data);
+          // Optionally, reset the form fields after successful submission
+          this.resetForm();
+        })
+        .catch(error => {
+          if (error.response) {
+            console.error('Error response:', error.response.data);
+            console.error('Error status:', error.response.status);
+            console.error('Error headers:', error.response.headers);
+          } else if (error.request) {
+            console.error('Error request:', error.request);
+          } else {
+            console.error('Error message:', error.message);
+          }
+        });
+    },
+    resetForm() {
+      this.civilstatus = '';
+      this.optionstatus = '';
 
-      return {
-        columns,
-        rows
-      };
     }
-  };
+  }
+//   setup() {
+//     return {
+//       columns,
+//       rows
+//     };
+//   }
+};
+
 </script>
