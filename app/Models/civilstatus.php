@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class civilstatus extends Model
 {
     use HasFactory;
-    protected $table = 'civilstatus';
+    protected $table = 'civil_status';
     protected $fillable = [
         'civilstatus',
         'optionstatus'

@@ -27,4 +27,16 @@ class civilStatusController extends Controller
             ], 500);
         }
     }
+    public function getcivilstatus()
+{
+    try {
+        $civilstatus = civilstatus::all();
+        return response()->json($civilstatus, 200);
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => 'Could not fetch data',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+}
 }

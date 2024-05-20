@@ -69,7 +69,8 @@
         </div>
 
           <div class="q-pa-md" >
-            <!-- <q-table :rows="rows" :columns="columns "  row-key="name"  /> -->
+            <!-- <q-table :rows="rows" :columns="columns " /> -->
+            <q-table flat bordered :rows="rows" :columns="columns" style="max-height: 100%; overflow-y: auto;" />
           </div>
 
 
@@ -85,79 +86,35 @@
 <script>
 import axios from 'axios';
 
+const columns = [
+  { name: 'civilstatus', label: 'Dropdown List', sortable: true, field: 'civilstatus', align: 'left', headerStyle: { background: '#1976D2', color: 'white' } },
+  { name: 'optionstatus', label: 'Option Status', sortable: true, field: 'optionstatus',align: 'left', headerStyle: { background: '#1976D2', color: 'white' } },
+  { name: 'action', label: 'Action', field: 'Action', headerStyle: { background: '#1976D2', color: 'white' } },
 
-//  export default {
-//     setup() {
-//       const columns = [
-//         {
-//           name: 'Dropdown list',
-//           required: true,
-//           label: 'Dropdown list',
-//           align: 'left',
-//           field: row => row.name,
-//           format: val => `${val}`,
-
-//           headerStyle: {
-//             background: '#1976D2',
-//             color: 'white'
-//           }
-//         },
-//         {
-//           name: 'Option',
-//           align: 'center',
-//           label: 'Option',
-//           field: 'Option',
-
-//           headerStyle: {
-//             background: '#1976D2',
-//             color: 'white'
-//           }
-//         },
-//         {
-//           name: 'Action',
-//           align: 'center',
-//           label: 'Action',
-//           field: 'Action',
-//           headerStyle: {
-//             background: '#1976D2',
-//             color: 'white'
-//           }
-//         },
-
-
-//       ];
-
-//       const rows = ref([]);
-
-//       const fetchData = async () => {
-//         try {
-//           const response = await fetch('your-backend-endpoint'); // Replace 'your-backend-endpoint' with your actual API endpoint
-//           const data = await response.json();
-//           rows.value = data;
-//         } catch (error) {
-//           console.error('Error fetching data:', error);
-//         }
-//       };
-
-//       onMounted(() => {
-//         fetchData();
-//       });
-
-//       return {
-//         columns,
-//         rows
-//       };
-//     }
-//   };
+];
 
 export default {
   data() {
     return {
       civilstatus: '',
-      optionstatus: 'Active'
+      optionstatus: 'Active',
+      columns,
+      rows: [],
+
+
     };
   },
   methods: {
+    fetchData() {
+      axios
+        .get('/api/civil_status')
+        .then(response => {
+          this.rows = response.data;
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    },
     addOption() {
       const payload = {
         civilstatus: this.civilstatus,
@@ -166,11 +123,12 @@ export default {
       };
 
       axios
-        .post('/api/civil_status', payload) //check mo kay chatgpt eto if tama yung mga forms(mga input textbox)
+        .post('/api/civil_status', payload)
         .then(response => {
           console.log(response.data);
-          // Optionally, reset the form fields after successful submission
+
           this.resetForm();
+          this.fetchData();
         })
         .catch(error => {
           if (error.response) {
@@ -189,13 +147,12 @@ export default {
       this.optionstatus = '';
 
     }
+
+  },
+  created() {
+    this.fetchData();
   }
-//   setup() {
-//     return {
-//       columns,
-//       rows
-//     };
-//   }
+
 };
 
 </script>

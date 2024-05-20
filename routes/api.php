@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/usersettings', [UserController::class, 'usersettings']);
 
 Route::post('/civil_status', [civilStatusController::class, 'civil_status']);
+Route::get('/civil_status', [civilStatusController::class, 'getcivilstatus']);
