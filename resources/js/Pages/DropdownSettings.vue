@@ -71,19 +71,26 @@
           <!-- Input fields -->
         </div>
         <div class="col-8">
-          <q-input v-model="search" outlined type="search" label="Search" dense style="margin-top: 30px; width: 65%; padding-left: 16px; margin-left: 33%;" class="justify-end">
-            <template v-slot:append>
-              <q-icon name="search" />
-            </template>
-          </q-input>
-          <div class="q-pa-md">
-            <q-table :rows="rows" :columns="columns" row-key="activity" />
-          </div>
-        </div>
+  <div style="display: flex; align-items: center; gap: 15px; margin-top: 5%; margin-left: 20%">
+    <q-input v-model="searchDate" outlined type="date" label="Search by Date" dense style="width: 30%;">
+    </q-input>
+    <q-input v-model="search" outlined type="search" label="Search" dense style="width: 65%; margin-right: 10px;">
+      <template v-slot:append>
+        <q-icon name="search" />
+      </template>
+    </q-input>
+    
+  </div>
+  <div class="q-pa-md">
+    <q-table :rows="filteredAndSortedRows" :columns="columns" row-key="activity" />
+  </div>
+</div>
+
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -109,11 +116,27 @@ export default {
       facilitator: '',
       costoftraining: '',
       status: 'Active',
-      // Initialize rows and columns
       rows: [],
       columns,
       search: '',
+      searchDate: ''
     };
+  },
+  computed: {
+    filteredAndSortedRows() {
+      const searchTerm = this.search.toLowerCase();
+      const searchDate = this.searchDate;
+      // Filter rows based on search input and searchDate
+      let filteredRows = this.rows.filter(row => {
+        const matchesTerm = Object.keys(row).some(key => {
+          return String(row[key]).toLowerCase().includes(searchTerm);
+        });
+        const matchesDate = !searchDate || row.date === searchDate;
+        return matchesTerm && matchesDate;
+      });
+      // Sort the filtered rows in descending order by date
+      return filteredRows.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
   },
   methods: {
     fetchData() {
@@ -141,6 +164,7 @@ export default {
         .post('/api/activity', payload)
         .then(response => {
           console.log(response.data);
+          alert(this.activity + ' added successfully');
           // Optionally, reset the form fields after successful submission
           this.resetForm();
           this.fetchData();
