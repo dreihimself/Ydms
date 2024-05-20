@@ -126,7 +126,7 @@ export default {
         .post('/api/civil_status', payload)
         .then(response => {
           console.log(response.data);
-
+          alert(this.civilstatus + ' added successfully');
           this.resetForm();
           this.fetchData();
 
@@ -142,7 +142,7 @@ export default {
             console.error('Error message:', error.message);
           }
         });
-        alert(this.civilstatus + ' added successfully');
+
     },
     resetForm() {
       this.civilstatus = '';

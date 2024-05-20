@@ -34,6 +34,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [RouteController::class, 'index']);
 Route::get('/home', [RouteController::class, 'home']);
+Route::get('/profiles', [RouteController::class, 'profiles']);
 Route::get('/preference', [RouteController::class, 'preference']);
 Route::get('/DropdownSettings', [RouteController::class, 'Dropdownsettings']);
 Route::get('/login', [RouteController::class, 'login']);

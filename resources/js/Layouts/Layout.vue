@@ -23,7 +23,7 @@
                                     </q-item-section>
                                 </q-item>
                             </Navigation>
-                            <Navigation href="">
+                            <Navigation href="/profiles">
                                 <q-item class="q-ma-xm navigation-item text-white" :class="$page.component === '' ? 'bg-grey-14' : null">
                                     <q-item-section>
                                         Profile

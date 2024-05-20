@@ -19,6 +19,11 @@ class RouteController extends Controller
         // sleep(3);
         return Inertia::render('HomePage');
     }
+    public function profiles()
+    {
+        // sleep(3);
+        return Inertia::render('Profiles');
+    }
     public function preference()
     {
         // sleep(3);
