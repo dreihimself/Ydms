@@ -129,6 +129,7 @@ export default {
 
           this.resetForm();
           this.fetchData();
+
         })
         .catch(error => {
           if (error.response) {
@@ -141,6 +142,7 @@ export default {
             console.error('Error message:', error.message);
           }
         });
+        alert(this.civilstatus + ' added successfully');
     },
     resetForm() {
       this.civilstatus = '';
@@ -151,7 +153,9 @@ export default {
   },
   created() {
     this.fetchData();
+
   }
+
 
 };
 
